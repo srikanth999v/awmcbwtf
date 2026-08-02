@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AWM CBMWTF - Common Bio-Medical Waste Treatment Facility</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<style>
+  :root {
+    --pri: #0052a5;
+    --sec: #00a86b;
+    --acc: #f5a623;
+    --pri-light: #e8f0fe;
+    --sec-light: #e6f7ee;
+    --dark: #1a1a2e;
+  }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; }
+  .section-padding { padding: 80px 0; }
+  .text-pri { color: var(--pri) !important; }
+  .text-sec { color: var(--sec) !important; }
+  .bg-pri-light { background-color: var(--pri-light) !important; }
+  .btn-pri { background-color: var(--pri); border-color: var(--pri); color: #fff; }
+  .btn-pri:hover { background-color: #003d7a; color: #fff; }
+  .btn-sec { background-color: var(--sec); border-color: var(--sec); color: #fff; }
+  .btn-sec:hover { background-color: #008c5a; color: #fff; }
+  .navbar { box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+  .navbar-brand { font-weight: 700; font-size: 1.3rem; }
+  .hero-section {
+    background: linear-gradient(135deg, var(--pri) 0%, #003d7a 50%, #002b5c 100%);
+    color: #fff; padding: 100px 0 80px; position: relative; overflow: hidden;
+  }
+  .hero-section::after {
+    content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 80px;
+    background: #fff; clip-path: ellipse(50% 100% at 50% 100%);
+  }
+  .service-card {
+    border: none; border-radius: 12px; transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.08); height: 100%;
+  }
+  .service-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.12); }
+  .service-card .card-icon {
+    width: 60px; height: 60px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px; margin: 0 auto 1rem;
+  }
+  .compliance-card { border-left: 4px solid var(--pri); border-radius: 8px; transition: box-shadow 0.3s; }
+  .compliance-card:hover { box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+  .page-header { background: linear-gradient(135deg, var(--pri) 0%, #003d7a 100%); color: #fff; padding: 60px 0 50px; }
+  .footer { background: var(--dark); color: rgba(255,255,255,0.7); padding: 40px 0 20px; }
+  .footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
+  .footer a:hover { color: #fff; }
+  .footer h6 { color: #fff; font-weight: 600; }
+  .page { display: none; }
+  .page.active { display: block; }
+  .nav-link.active { font-weight: 600; }
+  .stat-circle {
+    width: 200px; height: 200px; background: rgba(255,255,255,0.1);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    margin: 0 auto; font-size: 80px; border: 4px solid rgba(255,255,255,0.2);
+  }
+  .badge-warn { background-color: var(--acc); color: #fff; }
+</style>
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar navbar-expand-lg bg-white sticky-top">
+  <div class="container">
+    <a class="navbar-brand text-pri d-flex align-items-center" href="#" onclick="showPage('home');return false;">
+      <img src="logo.webp" alt="AWM CBMWTF logo" height="36" class="me-2" style="object-fit:contain;">
+      AWM CBMWTF
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#" onclick="showPage('home');return false;">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" onclick="showPage('compliance');return false;">Compliance</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" onclick="showPage('downloads');return false;">Downloads</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" onclick="showPage('contact');return false;">Contact</a></li>
+        <li class="nav-item ms-lg-2">
+          <a class="btn btn-pri btn-sm px-3" href="#" onclick="showPage('login');return false;">HCF Login</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ================= HOME ================= -->
+<div id="page-home" class="page active">
+  <section class="hero-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-7">
+          <h1 class="display-4 fw-bold mb-3">Safe Biomedical Waste Management</h1>
+          <p class="lead mb-4">
+            CPCB-compliant Common Bio-Medical Waste Treatment Facility serving
+            <strong>868+ healthcare facilities</strong> across Tirupati, Chittoor &amp; Annamayya districts.
+          </p>
+          <div class="d-flex gap-3 flex-wrap">
+            <a href="#" class="btn btn-sec btn-lg px-4" onclick="showPage('compliance');return false;">View Compliance</a>
+            <a href="#" class="btn btn-outline-light btn-lg px-4" onclick="showPage('contact');return false;">Contact Us</a>
+          </div>
+          <div class="row mt-4 g-2 text-center">
+            <div class="col-3">
+              <div class="fs-3 fw-bold">868+</div>
+              <div class="small opacity-75">HCFs Served</div>
+            </div>
+            <div class="col-3">
+              <div class="fs-3 fw-bold">17,352</div>
+              <div class="small opacity-75">Beds Covered</div>
+            </div>
+            <div class="col-3">
+              <div class="fs-3 fw-bold">99.8%</div>
+              <div class="small opacity-75">Scan Compliance</div>
+            </div>
+            <div class="col-3">
+              <div class="fs-3 fw-bold">10</div>
+              <div class="small opacity-75">GPS Vehicles</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5 text-center d-none d-lg-block">
+          <img src="logo.webp" alt="AWM CBMWTF logo" class="img-fluid" style="max-width:280px;background:rgba(255,255,255,0.92);border-radius:16px;padding:16px;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold text-pri">Our Services</h2>
+        <p class="text-muted" style="max-width:600px;margin:0 auto;">
+          End-to-end biomedical waste management solutions compliant with BMW Rules, 2016 and CPCB guidelines.
+        </p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="card service-card p-4">
+            <div class="card-icon bg-pri-light text-pri"><i class="bi bi-truck"></i></div>
+            <h5 class="fw-semibold text-center">Collection &amp; Transport</h5>
+            <p class="card-text text-muted small text-center mb-0">GPS-monitored dedicated vehicles collect segregated biomedical waste from 868+ HCFs daily across 46 mandals.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card service-card p-4">
+            <div class="card-icon bg-pri-light text-pri"><i class="bi bi-fire"></i></div>
+            <h5 class="fw-semibold text-center">Incineration</h5>
+            <p class="card-text text-muted small text-center mb-0">State-of-the-art incinerators operating at 850-1100C for yellow category waste with continuous emission monitoring.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card service-card p-4">
+            <div class="card-icon bg-pri-light text-pri"><i class="bi bi-droplet-half"></i></div>
+            <h5 class="fw-semibold text-center">Autoclaving &amp; Shredding</h5>
+            <p class="card-text text-muted small text-center mb-0">Pre-vacuum autoclaves with chemical indicator testing for red &amp; white category waste sterilization.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card service-card p-4">
+            <div class="card-icon bg-pri-light text-pri"><i class="bi bi-qr-code"></i></div>
+            <h5 class="fw-semibold text-center">Barcode Tracking</h5>
+            <p class="card-text text-muted small text-center mb-0">100% barcode-based tracking from generation to disposal, integrated with CPCB systems.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card service-card p-4">
+            <div class="card-icon bg-pri-light text-pri"><i class="bi bi-arrow-repeat"></i></div>
+            <h5 class="fw-semibold text-center">Recycling &amp; Disinfection</h5>
+            <p class="card-text text-muted small text-center mb-0">Chemical disinfection, plastic recycling after treatment, and glass/metal recovery for sound disposal.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card service-card p-4">
+            <div class="card-icon bg-pri-light text-pri"><i class="bi bi-file-earmark-text"></i></div>
+            <h5 class="fw-semibold text-center">Compliance Reporting</h5>
+            <p class="card-text text-muted small text-center mb-0">Auto-generated daily, monthly &amp; annual reports (Form IV) as per BMW Rules, 2016.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card service-card p-4">
+            <div class="card-icon bg-pri-light text-pri"><i class="bi bi-mortarboard"></i></div>
+            <h5 class="fw-semibold text-center">Training &amp; Awareness</h5>
+            <p class="card-text text-muted small text-center mb-0">Regular training programs for HCF staff on segregation, handling, and safety as per BMW Rules.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card service-card p-4">
+            <div class="card-icon bg-pri-light text-pri"><i class="bi bi-headset"></i></div>
+            <h5 class="fw-semibold text-center">24x7 Grievance Support</h5>
+            <p class="card-text text-muted small text-center mb-0">Round-the-clock emergency response and grievance redressal for all connected HCFs.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card service-card p-4">
+            <div class="card-icon bg-pri-light text-pri"><i class="bi bi-water"></i></div>
+            <h5 class="fw-semibold text-center">Effluent Treatment</h5>
+            <p class="card-text text-muted small text-center mb-0">On-site ETP ensuring treated effluent meets prescribed discharge standards before release.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding bg-pri-light">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <h2 class="fw-bold text-pri">Coverage Area</h2>
+          <p class="text-muted">Our GPS-monitored fleet covers all HCFs with optimized routes across the region.</p>
+          <div class="d-flex flex-column gap-2 mt-3">
+            <div class="d-flex align-items-center"><i class="bi bi-geo-alt-fill text-sec me-2"></i><span>Tirupati District - 525 HCFs</span></div>
+            <div class="d-flex align-items-center"><i class="bi bi-geo-alt-fill text-sec me-2"></i><span>Chittoor District - 232 HCFs</span></div>
+            <div class="d-flex align-items-center"><i class="bi bi-geo-alt-fill text-sec me-2"></i><span>Annamayya District - 107 HCFs</span></div>
+            <div class="d-flex align-items-center"><i class="bi bi-geo-alt-fill text-sec me-2"></i><span>46 mandals, 4 districts covered</span></div>
+          </div>
+          <p class="mt-3 small text-muted"><i class="bi bi-info-circle me-1"></i>Map integration coming soon. Routes optimized using GPS tracking data.</p>
+        </div>
+        <div class="col-lg-6 text-center">
+          <div class="bg-white rounded-4 shadow-sm p-5">
+            <i class="bi bi-map" style="font-size:80px;color:var(--pri);opacity:0.3;"></i>
+            <p class="text-muted mt-2 mb-0">Coverage Map</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding text-center">
+    <div class="container">
+      <h2 class="fw-bold text-pri">100% Barcode Compliance</h2>
+      <p class="text-muted mb-4" style="max-width:600px;margin:0 auto 1rem;">
+        Every bag tracked from generation to final treatment using CPCB-integrated barcode system. Real-time monitoring for SPCB/PCB audit.
+      </p>
+      <a href="#" class="btn btn-pri px-4" onclick="showPage('compliance');return false;">View Compliance Dashboard</a>
+    </div>
+  </section>
+</div>
+
+<!-- ================= COMPLIANCE ================= -->
+<div id="page-compliance" class="page">
+  <section class="page-header">
+    <div class="container">
+      <h1 class="fw-bold mb-2">Compliance</h1>
+      <p class="lead mb-0 opacity-90">Public disclosure as mandated under BMW Management Rules, 2016 (Rule 5)</p>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <div class="card compliance-card h-100 p-4">
+            <div class="d-flex align-items-start gap-3">
+              <div class="bg-pri-light text-pri p-3 rounded-3"><i class="bi bi-file-earmark-check fs-3"></i></div>
+              <div class="flex-grow-1">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <h5 class="fw-semibold mb-0">Consent for Establishment (CFE)</h5>
+                  <span class="badge badge-warn ms-auto">Renewal in process</span>
+                </div>
+                <p class="text-muted small mb-2">Consent for Establishment under the Water &amp; Air (Prevention and Control of Pollution) Acts for the CBWTF.</p>
+                <small class="d-block mt-2"><i class="bi bi-clock me-1"></i>Ref: 605/APPCB/KNL/Trr/BMWM/CBMWTF/2005 | Date: 14-09-2021 | Valid until: 30-09-2025</small>
+                <small class="d-block mt-1 text-warning"><i class="bi bi-exclamation-triangle me-1"></i>Renewal may be in process.</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="card compliance-card h-100 p-4">
+            <div class="d-flex align-items-start gap-3">
+              <div class="bg-pri-light text-pri p-3 rounded-3"><i class="bi bi-clipboard-data fs-3"></i></div>
+              <div class="flex-grow-1">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <h5 class="fw-semibold mb-0">Consent to Operate (CFO)</h5>
+                  <span class="badge badge-warn ms-auto">Renewal in process</span>
+                </div>
+                <p class="text-muted small mb-2">Consent to Operate granted by APPCB for collection, reception, storage, treatment and disposal of biomedical waste.</p>
+                <small class="d-block mt-2"><i class="bi bi-clock me-1"></i>Ref: 6001/PCB/JCES/BMWM/2005-2424 | Date: 21-02-2005</small>
+                <small class="d-block mt-1 text-warning"><i class="bi bi-exclamation-triangle me-1"></i>Renewal may be in process.</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="card compliance-card h-100 p-4">
+            <div class="d-flex align-items-start gap-3">
+              <div class="bg-pri-light text-pri p-3 rounded-3"><i class="bi bi-shield-check fs-3"></i></div>
+              <div class="flex-grow-1">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <h5 class="fw-semibold mb-0">Authorization under BMW Rules, 2016</h5>
+                  <span class="badge bg-sec ms-auto">Details on request</span>
+                </div>
+                <p class="text-muted small mb-2">Authorization held with Andhra Pradesh Pollution Control Board for operation of the Common Bio-Medical Waste Treatment Facility.</p>
+                <small class="d-block mt-2"><i class="bi bi-info-circle me-1"></i>Certificate available for inspection on request.</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="card compliance-card h-100 p-4">
+            <div class="d-flex align-items-start gap-3">
+              <div class="bg-pri-light text-pri p-3 rounded-3"><i class="bi bi-building fs-3"></i></div>
+              <div class="flex-grow-1">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <h5 class="fw-semibold mb-0">Company Registration Details</h5>
+                  <span class="badge bg-sec ms-auto">Registered</span>
+                </div>
+                <ul class="list-unstyled small mb-0">
+                  <li class="mb-1"><i class="bi bi-check-circle text-sec me-1"></i>CIN: U74999AP2000PLC35676</li>
+                  <li class="mb-1"><i class="bi bi-check-circle text-sec me-1"></i>GST: 37AADCA7908H1ZL</li>
+                  <li class="mb-1"><i class="bi bi-check-circle text-sec me-1"></i>Udyam: UDYAM-B02-0241930</li>
+                  <li class="mb-1"><i class="bi bi-check-circle text-sec me-1"></i>Incorporated: 2000</li>
+                  <li class="mb-1"><i class="bi bi-check-circle text-sec me-1"></i>Category: Red (Health Care, as per BMW Rules)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="card compliance-card h-100 p-4">
+            <div class="d-flex align-items-start gap-3">
+              <div class="bg-pri-light text-pri p-3 rounded-3"><i class="bi bi-tree fs-3"></i></div>
+              <div class="flex-grow-1">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <h5 class="fw-semibold mb-0">Land &amp; Property Records</h5>
+                  <span class="badge bg-sec ms-auto">Documented</span>
+                </div>
+                <ul class="list-unstyled small mb-0">
+                  <li class="mb-1"><i class="bi bi-check-circle text-sec me-1"></i>Site Land Document No: 1483/2004</li>
+                  <li class="mb-1"><i class="bi bi-check-circle text-sec me-1"></i>Encumbrance on Property: 494783</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="card compliance-card h-100 p-4">
+            <div class="d-flex align-items-start gap-3">
+              <div class="bg-pri-light text-pri p-3 rounded-3"><i class="bi bi-person-badge fs-3"></i></div>
+              <div class="flex-grow-1">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <h5 class="fw-semibold mb-0">Statutory Auditor</h5>
+                  <span class="badge bg-sec ms-auto">Appointed</span>
+                </div>
+                <p class="text-muted small mb-0">Kota &amp; Company Chartered Accountants</p>
+                <small class="d-block mt-2"><i class="bi bi-card-text me-1"></i>M.No: 022964 | UDIN: 25022964BMJQMH7767</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding bg-pri-light">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-7">
+          <h2 class="fw-bold text-pri">Applicable Regulations</h2>
+          <p class="text-muted">Our facility complies with all applicable BMW management regulations:</p>
+          <ul class="list-unstyled">
+            <li class="mb-2"><i class="bi bi-shield-check text-sec me-2"></i>BMW Rules, 2016 Compliance</li>
+            <li class="mb-2"><i class="bi bi-shield-check text-sec me-2"></i>CPCB Revised CBWTF Guidelines, Dec 2016</li>
+            <li class="mb-2"><i class="bi bi-shield-check text-sec me-2"></i>Amendment Rules, 2018 (Barcode Mandate)</li>
+            <li class="mb-2"><i class="bi bi-shield-check text-sec me-2"></i>Amendment Rules, 2019</li>
+            <li class="mb-2"><i class="bi bi-shield-check text-sec me-2"></i>Second Amendment Rules, 2019</li>
+            <li class="mb-2"><i class="bi bi-shield-check text-sec me-2"></i>Water &amp; Air (Prevention &amp; Control of Pollution) Acts</li>
+          </ul>
+        </div>
+        <div class="col-lg-5 text-center">
+          <div class="bg-white rounded-4 shadow-sm p-5">
+            <i class="bi bi-file-text" style="font-size:60px;color:var(--pri);opacity:0.2;"></i>
+            <h5 class="text-pri mt-3">Form IV Annual Report</h5>
+            <p class="small text-muted mb-3">Annual Report as per Form IV of BMW Rules, 2016 submitted to SPCB by 30 June each year.</p>
+            <button class="btn btn-pri btn-sm" disabled>Uploads Coming Soon</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= DOWNLOADS ================= -->
+<div id="page-downloads" class="page">
+  <section class="page-header">
+    <div class="container">
+      <h1 class="fw-bold mb-2">Downloads</h1>
+      <p class="lead mb-0 opacity-90">Rules, guidelines, forms, and standard operating procedures</p>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <h4 class="fw-bold text-pri mb-3"><i class="bi bi-file-earmark-pdf me-2"></i>Rules &amp; Guidelines</h4>
+          <div class="d-flex flex-column gap-2">
+            <div class="card compliance-card p-3">
+              <div class="d-flex align-items-center gap-3">
+                <i class="bi bi-file-earmark-pdf text-danger fs-4"></i>
+                <div class="flex-grow-1">
+                  <small class="fw-semibold d-block">Bio-Medical Waste Management Rules, 2016</small>
+                  <small class="text-muted">01_BMW_Rules_2016.pdf</small>
+                </div>
+                <a href="pdfs/01_BMW_Rules_2016.pdf" download class="btn btn-sm btn-outline-secondary"><i class="bi bi-download"></i></a>
+              </div>
+            </div>
+            <div class="card compliance-card p-3">
+              <div class="d-flex align-items-center gap-3">
+                <i class="bi bi-file-earmark-pdf text-danger fs-4"></i>
+                <div class="flex-grow-1">
+                  <small class="fw-semibold d-block">CPCB Revised Guidelines for CBWTF (Dec 2016)</small>
+                  <small class="text-muted">02_CPCB_Guidelines_CBWTF_2016.pdf</small>
+                </div>
+                <a href="pdfs/02_CPCB_Guidelines_CBWTF_2016.pdf" download class="btn btn-sm btn-outline-secondary"><i class="bi bi-download"></i></a>
+              </div>
+            </div>
+            <div class="card compliance-card p-3">
+              <div class="d-flex align-items-center gap-3">
+                <i class="bi bi-file-earmark-pdf text-danger fs-4"></i>
+                <div class="flex-grow-1">
+                  <small class="fw-semibold d-block">BMW Amendment Rules, 2018</small>
+                  <small class="text-muted">03_BMW_Amendment_2018.pdf</small>
+                </div>
+                <a href="pdfs/03_BMW_Amendment_2018.pdf" download class="btn btn-sm btn-outline-secondary"><i class="bi bi-download"></i></a>
+              </div>
+            </div>
+            <div class="card compliance-card p-3">
+              <div class="d-flex align-items-center gap-3">
+                <i class="bi bi-file-earmark-pdf text-danger fs-4"></i>
+                <div class="flex-grow-1">
+                  <small class="fw-semibold d-block">BMW Amendment Rules, 2019</small>
+                  <small class="text-muted">04_BMW_Amendment_2019.pdf</small>
+                </div>
+                <a href="pdfs/04_BMW_Amendment_2019.pdf" download class="btn btn-sm btn-outline-secondary"><i class="bi bi-download"></i></a>
+              </div>
+            </div>
+            <div class="card compliance-card p-3">
+              <div class="d-flex align-items-center gap-3">
+                <i class="bi bi-file-earmark-pdf text-danger fs-4"></i>
+                <div class="flex-grow-1">
+                  <small class="fw-semibold d-block">BMW Second Amendment Rules, 2019</small>
+                  <small class="text-muted">05_BMW_2nd_Amendment_2019.pdf</small>
+                </div>
+                <a href="pdfs/05_BMW_2nd_Amendment_2019.pdf" download class="btn btn-sm btn-outline-secondary"><i class="bi bi-download"></i></a>
+              </div>
+            </div>
+            <div class="card compliance-card p-3">
+              <div class="d-flex align-items-center gap-3">
+                <i class="bi bi-file-earmark-pdf text-danger fs-4"></i>
+                <div class="flex-grow-1">
+                  <small class="fw-semibold d-block">CPCB Guidelines: Bar Code &amp; GPS System (2018)</small>
+                  <small class="text-muted">07_CPCB_Barcode_GPS_2018.pdf</small>
+                </div>
+                <a href="pdfs/07_CPCB_Barcode_GPS_2018.pdf" download class="btn btn-sm btn-outline-secondary"><i class="bi bi-download"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <h4 class="fw-bold text-pri mb-3"><i class="bi bi-file-earmark-text me-2"></i>SOPs &amp; Manuals</h4>
+          <div class="d-flex flex-column gap-2 mb-4">
+            <div class="card compliance-card p-3">
+              <div class="d-flex align-items-center gap-3">
+                <i class="bi bi-file-earmark-richtext text-pri fs-4"></i>
+                <div class="flex-grow-1">
+                  <small class="fw-semibold d-block">CBWTF Operational Manual</small>
+                  <small class="text-muted">Standard Operating Procedures for daily operations</small>
+                </div>
+                <button class="btn btn-sm btn-outline-secondary" disabled><i class="bi bi-download"></i></button>
+              </div>
+            </div>
+            <div class="card compliance-card p-3">
+              <div class="d-flex align-items-center gap-3">
+                <i class="bi bi-file-earmark-richtext text-pri fs-4"></i>
+                <div class="flex-grow-1">
+                  <small class="fw-semibold d-block">Incinerator Operations SOP</small>
+                  <small class="text-muted">Startup, operation, and shutdown procedures</small>
+                </div>
+                <button class="btn btn-sm btn-outline-secondary" disabled><i class="bi bi-download"></i></button>
+              </div>
+            </div>
+            <div class="card compliance-card p-3">
+              <div class="d-flex align-items-center gap-3">
+                <i class="bi bi-file-earmark-richtext text-pri fs-4"></i>
+                <div class="flex-grow-1">
+                  <small class="fw-semibold d-block">Autoclave Validation Protocol</small>
+                  <small class="text-muted">Chemical &amp; biological indicator testing</small>
+                </div>
+                <button class="btn btn-sm btn-outline-secondary" disabled><i class="bi bi-download"></i></button>
+              </div>
+            </div>
+            <div class="card compliance-card p-3">
+              <div class="d-flex align-items-center gap-3">
+                <i class="bi bi-file-earmark-richtext text-pri fs-4"></i>
+                <div class="flex-grow-1">
+                  <small class="fw-semibold d-block">Spill Management Protocol</small>
+                  <small class="text-muted">Bio-medical waste spill containment &amp; cleanup</small>
+                </div>
+                <button class="btn btn-sm btn-outline-secondary" disabled><i class="bi bi-download"></i></button>
+              </div>
+            </div>
+            <div class="card compliance-card p-3">
+              <div class="d-flex align-items-center gap-3">
+                <i class="bi bi-file-earmark-richtext text-pri fs-4"></i>
+                <div class="flex-grow-1">
+                  <small class="fw-semibold d-block">PPE Guide</small>
+                  <small class="text-muted">Personal protective equipment requirements for all roles</small>
+                </div>
+                <button class="btn btn-sm btn-outline-secondary" disabled><i class="bi bi-download"></i></button>
+              </div>
+            </div>
+          </div>
+          <h4 class="fw-bold text-pri mb-3"><i class="bi bi-ui-checks me-2"></i>Forms</h4>
+          <div class="row g-2">
+            <div class="col-6"><button class="btn btn-outline-secondary w-100 text-start" disabled><i class="bi bi-file-earmark me-2"></i><small>Form I - Accident Reporting</small></button></div>
+            <div class="col-6"><button class="btn btn-outline-secondary w-100 text-start" disabled><i class="bi bi-file-earmark me-2"></i><small>Form II - Occupier Annual Return</small></button></div>
+            <div class="col-6"><button class="btn btn-outline-secondary w-100 text-start" disabled><i class="bi bi-file-earmark me-2"></i><small>Form III - CBWTF Annual Return</small></button></div>
+            <div class="col-6"><button class="btn btn-outline-secondary w-100 text-start" disabled><i class="bi bi-file-earmark me-2"></i><small>Form IV - Annual Report</small></button></div>
+            <div class="col-6"><button class="btn btn-outline-secondary w-100 text-start" disabled><i class="bi bi-file-earmark me-2"></i><small>New HCF Registration Form</small></button></div>
+            <div class="col-6"><button class="btn btn-outline-secondary w-100 text-start" disabled><i class="bi bi-file-earmark me-2"></i><small>Driver Onboarding Checklist</small></button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= CONTACT ================= -->
+<div id="page-contact" class="page">
+  <section class="page-header">
+    <div class="container">
+      <h1 class="fw-bold mb-2">Contact Us</h1>
+      <p class="lead mb-0 opacity-90">Get in touch for inquiries, grievances, or HCF registration</p>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-5">
+          <h4 class="fw-bold text-pri mb-4">Contact Information</h4>
+          <div class="d-flex flex-column gap-3">
+            <div class="d-flex align-items-start gap-3">
+              <i class="bi bi-geo-alt-fill fs-5 text-pri mt-1"></i>
+              <div>
+                <h6 class="fw-semibold mb-1">Factory Address</h6>
+                <p class="text-muted small mb-0">SY NO.4, Pachikapallam (V&amp;P), Vedurukuppam Mandal,<br>Chitoor District - 517569</p>
+              </div>
+            </div>
+            <div class="d-flex align-items-start gap-3">
+              <i class="bi bi-geo-alt-fill fs-5 text-pri mt-1"></i>
+              <div>
+                <h6 class="fw-semibold mb-1">Local Office Address</h6>
+                <p class="text-muted small mb-0">#1-5-553, 2nd Floor, Balaji Colony,<br>Tirupati - 517502</p>
+              </div>
+            </div>
+            <div class="d-flex align-items-start gap-3">
+              <i class="bi bi-telephone-fill fs-5 text-pri mt-1"></i>
+              <div>
+                <h6 class="fw-semibold mb-1">Phone</h6>
+                <p class="text-muted small mb-0">9391373577<br>8978928021</p>
+              </div>
+            </div>
+            <div class="d-flex align-items-start gap-3">
+              <i class="bi bi-envelope-fill fs-5 text-pri mt-1"></i>
+              <div>
+                <h6 class="fw-semibold mb-1">Email</h6>
+                <p class="text-muted small mb-0">awmconsultinglimited@gmail.com<br>awm_18@rediffmail.com</p>
+              </div>
+            </div>
+            <div class="d-flex align-items-start gap-3">
+              <i class="bi bi-clock-fill fs-5 text-pri mt-1"></i>
+              <div>
+                <h6 class="fw-semibold mb-1">Working Hours</h6>
+                <p class="text-muted small mb-0">Mon - Sat: 8:00 AM - 6:00 PM<br>Sunday: Closed (Emergency only)</p>
+              </div>
+            </div>
+            <div class="d-flex align-items-start gap-3">
+              <i class="bi bi-person-fill fs-5 text-pri mt-1"></i>
+              <div>
+                <h6 class="fw-semibold mb-1">Grievance Officer</h6>
+                <p class="text-muted small mb-0">Mr. Nuthalapati Hanumaiah<br>Managing Director<br>awm_18@rediffmail.com<br>9494678565</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <h4 class="fw-bold text-pri mb-4">Send a Message</h4>
+          <form onsubmit="handleSubmit(event)">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label small fw-semibold">Full Name</label>
+                <input type="text" class="form-control" placeholder="Enter your name" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label small fw-semibold">Organization / HCF</label>
+                <input type="text" class="form-control" placeholder="Hospital / Facility name">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label small fw-semibold">Email</label>
+                <input type="email" class="form-control" placeholder="you@example.com" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label small fw-semibold">Phone</label>
+                <input type="tel" class="form-control" placeholder="+91-XXXXXXXXXX">
+              </div>
+              <div class="col-12">
+                <label class="form-label small fw-semibold">Subject</label>
+                <select class="form-select">
+                  <option>General Inquiry</option>
+                  <option>HCF Registration</option>
+                  <option>Grievance / Complaint</option>
+                  <option>Schedule Change Request</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label class="form-label small fw-semibold">Message</label>
+                <textarea class="form-control" rows="4" placeholder="Type your message here..."></textarea>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-pri px-4"><i class="bi bi-send me-2"></i>Send Message</button>
+                <span id="formMsg" class="ms-3 small text-sec"></span>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= HCF LOGIN ================= -->
+<div id="page-login" class="page">
+  <section class="page-header">
+    <div class="container">
+      <h1 class="fw-bold mb-2">HCF Login</h1>
+      <p class="lead mb-0 opacity-90">Login for Healthcare Facilities to manage waste collection services</p>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5">
+          <div class="card shadow-sm border-0">
+            <div class="card-body p-5">
+              <div class="text-center mb-4">
+                <div class="bg-pri-light text-pri d-inline-flex p-3 rounded-circle mb-3">
+                  <i class="bi bi-hospital fs-3"></i>
+                </div>
+                <h4 class="fw-bold text-pri mb-1">HCF Portal</h4>
+                <p class="text-muted small mb-0">Access invoices, schedules &amp; compliance status</p>
+              </div>
+              <a href="https://pcb.ap.gov.in/HCF/Views/Login.aspx" target="_blank" rel="noopener" class="btn btn-pri w-100 py-2 d-flex align-items-center justify-content-center gap-2"><i class="bi bi-box-arrow-in-right"></i>Login to APPCB HCF Portal</a>
+              <div class="text-center mt-3">
+                <a href="#" class="small text-pri">Forgot password? Contact CBWTF office</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-4">
+        <h6 class="d-flex align-items-center"><img src="logo.webp" alt="AWM CBMWTF logo" height="28" class="me-2" style="object-fit:contain;">AWM CBMWTF</h6>
+        <p class="small mb-2">AWM Consulting Limited - Common Bio-Medical Waste Treatment Facility serving 868+ healthcare facilities and 17,352+ beds. Compliant with Bio-Medical Waste Management Rules, 2016.</p>
+        <p class="small mb-0">Authorized by Andhra Pradesh Pollution Control Board</p>
+      </div>
+      <div class="col-md-2">
+        <h6>Quick Links</h6>
+        <ul class="list-unstyled small">
+          <li class="mb-1"><a href="#" onclick="showPage('home');return false;">Home</a></li>
+          <li class="mb-1"><a href="#" onclick="showPage('compliance');return false;">Compliance</a></li>
+          <li class="mb-1"><a href="#" onclick="showPage('downloads');return false;">Downloads</a></li>
+          <li class="mb-1"><a href="#" onclick="showPage('contact');return false;">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3">
+        <h6>Company</h6>
+        <ul class="list-unstyled small">
+          <li class="mb-1">CIN: U74999AP2000PLC35676</li>
+          <li class="mb-1">GST: 37AADCA7908H1ZL</li>
+          <li class="mb-1">Udyam: UDYAM-B02-0241930</li>
+          <li class="mb-1">AWM Consulting Limited</li>
+        </ul>
+      </div>
+      <div class="col-md-3">
+        <h6>Contact</h6>
+        <ul class="list-unstyled small">
+          <li class="mb-1"><i class="bi bi-geo-alt me-1"></i> Factory: SY NO.4, Pachikapallam, Chitoor - 517569</li>
+          <li class="mb-1"><i class="bi bi-geo-alt me-1"></i> Office: #1-5-553, Balaji Colony, Tirupati - 517502</li>
+          <li class="mb-1"><i class="bi bi-telephone me-1"></i> 9391373577 / 8978928021</li>
+          <li class="mb-1"><i class="bi bi-envelope me-1"></i> awmconsultinglimited@gmail.com</li>
+        </ul>
+      </div>
+    </div>
+    <hr class="my-3" style="border-color:rgba(255,255,255,0.1);">
+    <div class="row">
+      <div class="col text-center small">
+        &copy; 2026 AWM Consulting Limited (AWM CBMWTF). All rights reserved. | Designed as per BMW Rules, 2016
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  document.querySelectorAll('.navbar-nav .nav-link').forEach(l => l.classList.remove('active'));
+  document.querySelectorAll('.navbar-nav .nav-link').forEach(l => {
+    if (l.textContent.trim().toLowerCase() === (id === 'login' ? 'hcf login' : id)) l.classList.add('active');
+  });
+  window.scrollTo(0, 0);
+}
+function handleSubmit(e) {
+  e.preventDefault();
+  document.getElementById('formMsg').textContent = 'Thank you! Our team will contact you shortly.';
+  e.target.reset();
+  setTimeout(() => document.getElementById('formMsg').textContent = '', 6000);
+}
+function handleLogin(e) { e.preventDefault(); window.open('https://pcb.ap.gov.in/HCF/Views/Login.aspx', '_blank', 'noopener'); }
+</script>
+</body>
+</html>
